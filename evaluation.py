@@ -54,10 +54,10 @@ predicted_labels = lb.inverse_transform(predicted_labels)
 predicted_labels_onehot = lb.transform(predicted_labels)
 
 # Calculate and display evaluation metrics
-accuracy = accuracy_score(true_labels, predicted_labels_onehot)
-precision = precision_score(true_labels, predicted_labels_onehot, average='weighted')
-recall = recall_score(true_labels, predicted_labels_onehot, average='weighted')
-f1 = f1_score(true_labels, predicted_labels_onehot, average='weighted')
+accuracy = accuracy_score(true_labels, predicted_labels_onehot)  #accuracy = tn+tp/(total instances)
+precision = precision_score(true_labels, predicted_labels_onehot, average='weighted')    #precision = tp/(tp+fp)
+recall = recall_score(true_labels, predicted_labels_onehot, average='weighted')         #recall = tp/(tp+fn)
+f1 = f1_score(true_labels, predicted_labels_onehot, average='weighted')                #f1score = 2*(prec*recall)/(prec+recall)
 
 # Convert the true labels and predicted labels to their respective classes
 true_labels_class = lb.inverse_transform(true_labels)
